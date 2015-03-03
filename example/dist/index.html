@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="codemirror.css">
+    <script type="text" id="code1">
+var Storage = require('react-storage');
+var Example = React.createClass({
+    render: function() {
+        return (
+            <div>
+            <Storage name="foo" value="i am string"/>
+            <span>{Storage.get('foo')}</span>
+            </div>
+        );
+    }
+
+});
+return <Example/>
+    </script>
+    <script type="text" id="code2">
+var Storage = require('react-storage');
+var Example = React.createClass({
+    render: function() {
+        var obj = {
+            x: 1,
+            y: 2
+        }
+        return (
+            <div>
+            <Storage name="bar" value={obj}/>
+            <span>{Storage.get('bar')}</span>
+            </div>
+        );
+    }
+
+});
+return <Example/>
+    </script>
+    <script type="text" id="code3">
+var Storage = require('react-storage');
+var Example = React.createClass({
+    render: function() {
+        var arr = [1, "2", {x:1, y:2}]
+        return (
+            <div>
+            <Storage name="baz" value={arr}/>
+            <span>{Storage.get('baz')}</span>
+            </div>
+        );
+    }
+
+});
+return <Example/>
+    </script>
+    <style>
+        body {
+            width: 1024px;
+            margin:0 auto
+        }
+        .example {
+            margin-bottom: 20px;
+        }
+
+        .playground:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .playground-tab {
+            border-bottom: none !important;
+            border-radius: 3px 3px 0 0;
+            padding: 6px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #C2C0BC;
+            background-color: #F1EDE4;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .playgroundCode, .playground-tab, .playgroundPreview {
+            border: 1px solid rgba(16, 16, 16, 0.1);
+        }
+
+        .playgroundCode {
+            border-radius: 0 3px 3px 3px;
+            float: left;
+            overflow: hidden;
+            width: 600px;
+        }
+
+        .playgroundPreview {
+            background-color: #FFF;
+            border-radius: 3px;
+            float: right;
+            padding: 15px 20px;
+            width: 280px;
+        }
+    </style>
+</head>
+<body>
+<h1>Live Demo</h1>
+<h2>Save String Value</h2>
+<div class="example" id="example1"></div>
+<h2>Save Object Value</h2>
+<div class="example" id="example2"></div>
+<h2>Save Array Value</h2>
+<div class="example" id="example3"></div>
+<script src="codemirror.js"></script>
+<!--<script src="foldcode.js"></script>-->
+<script src="javascript.js"></script>
+<script src="JSXTransformer.js"></script>
+
+<script src="common.js"></script>
+<script src="bundle.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
