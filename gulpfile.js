@@ -160,13 +160,14 @@ function buildExampleScripts(dev) {
 
 };
 
-gulp.task('dev:build:example:copy', function(){
+function copyExampleNeeds(){
     return gulp.src(EXAMPLE_COPY)
         .pipe(gulp.dest(EXAMPLE_DIST_PATH))
         .pipe(connect.reload());
-});
+}
 
-gulp.task('build:example:copy', ['dev:build:example:copy']);
+gulp.task('dev:build:example:copy', copyExampleNeeds);
+gulp.task('build:example:copy', ['prepare:examples'], copyExampleNeeds);
 
 
 gulp.task('dev:build:example:scripts', buildExampleScripts(true));
